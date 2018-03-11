@@ -1,0 +1,7 @@
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_5\Algo_5\obj\Debug\Algo_5.csprojResolveAssemblyReference.cache
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_5\Algo_5\obj\Debug\Algo_5.csproj.CoreCompileInputs.cache
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_5\Algo_5\bin\Debug\Algo_5.exe.config
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_5\Algo_5\bin\Debug\Algo_5.exe
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_5\Algo_5\bin\Debug\Algo_5.pdb
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_5\Algo_5\obj\Debug\Algo_5.exe
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_5\Algo_5\obj\Debug\Algo_5.pdb
