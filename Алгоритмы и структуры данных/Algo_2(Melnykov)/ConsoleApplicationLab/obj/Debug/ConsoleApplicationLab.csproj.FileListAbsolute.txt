@@ -4,3 +4,10 @@ C:\Users\User\documents\visual studio 2015\Projects\ConsoleApplicationLab\Consol
 C:\Users\User\documents\visual studio 2015\Projects\ConsoleApplicationLab\ConsoleApplicationLab\bin\Debug\ConsoleApplicationLab.exe
 C:\Users\User\documents\visual studio 2015\Projects\ConsoleApplicationLab\ConsoleApplicationLab\bin\Debug\ConsoleApplicationLab.pdb
 C:\Users\User\documents\visual studio 2015\Projects\ConsoleApplicationLab\ConsoleApplicationLab\obj\Debug\ConsoleApplicationLab.csprojResolveAssemblyReference.cache
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\Алгоритмы и структуры данных\ConsoleApplicationLab\ConsoleApplicationLab\bin\Debug\ConsoleApplicationLab.exe.config
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\Алгоритмы и структуры данных\ConsoleApplicationLab\ConsoleApplicationLab\bin\Debug\ConsoleApplicationLab.exe
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\Алгоритмы и структуры данных\ConsoleApplicationLab\ConsoleApplicationLab\bin\Debug\ConsoleApplicationLab.pdb
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\Алгоритмы и структуры данных\ConsoleApplicationLab\ConsoleApplicationLab\obj\Debug\ConsoleApplicationLab.csprojResolveAssemblyReference.cache
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\Алгоритмы и структуры данных\ConsoleApplicationLab\ConsoleApplicationLab\obj\Debug\ConsoleApplicationLab.csproj.CoreCompileInputs.cache
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\Алгоритмы и структуры данных\ConsoleApplicationLab\ConsoleApplicationLab\obj\Debug\ConsoleApplicationLab.exe
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\Алгоритмы и структуры данных\ConsoleApplicationLab\ConsoleApplicationLab\obj\Debug\ConsoleApplicationLab.pdb
