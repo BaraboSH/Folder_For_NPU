@@ -1,0 +1,7 @@
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_7\Algo_7\bin\Debug\Algo_7.exe.config
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_7\Algo_7\bin\Debug\Algo_7.exe
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_7\Algo_7\bin\Debug\Algo_7.pdb
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_7\Algo_7\obj\Debug\Algo_7.csprojResolveAssemblyReference.cache
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_7\Algo_7\obj\Debug\Algo_7.csproj.CoreCompileInputs.cache
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_7\Algo_7\obj\Debug\Algo_7.exe
+C:\Users\Nikita\Desktop\Прогерство\С#\Algo_7\Algo_7\obj\Debug\Algo_7.pdb

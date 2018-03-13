@@ -1,6 +1,0 @@
-c:\users\user\documents\visual studio 2015\Projects\Algo7\Algo7\bin\Debug\Algo7.exe.config
-c:\users\user\documents\visual studio 2015\Projects\Algo7\Algo7\bin\Debug\Algo7.exe
-c:\users\user\documents\visual studio 2015\Projects\Algo7\Algo7\bin\Debug\Algo7.pdb
-c:\users\user\documents\visual studio 2015\Projects\Algo7\Algo7\obj\Debug\Algo7.csprojResolveAssemblyReference.cache
-c:\users\user\documents\visual studio 2015\Projects\Algo7\Algo7\obj\Debug\Algo7.exe
-c:\users\user\documents\visual studio 2015\Projects\Algo7\Algo7\obj\Debug\Algo7.pdb
