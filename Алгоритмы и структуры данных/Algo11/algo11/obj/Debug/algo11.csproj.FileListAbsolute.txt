@@ -1,0 +1,6 @@
+c:\users\user\documents\visual studio 2015\Projects\algo11\algo11\bin\Debug\algo11.exe.config
+c:\users\user\documents\visual studio 2015\Projects\algo11\algo11\bin\Debug\algo11.exe
+c:\users\user\documents\visual studio 2015\Projects\algo11\algo11\bin\Debug\algo11.pdb
+c:\users\user\documents\visual studio 2015\Projects\algo11\algo11\obj\Debug\algo11.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\algo11\algo11\obj\Debug\algo11.exe
+c:\users\user\documents\visual studio 2015\Projects\algo11\algo11\obj\Debug\algo11.pdb
