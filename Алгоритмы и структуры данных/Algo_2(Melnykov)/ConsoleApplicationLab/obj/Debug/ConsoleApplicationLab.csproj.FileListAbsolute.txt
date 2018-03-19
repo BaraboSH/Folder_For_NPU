@@ -11,3 +11,6 @@ C:\Users\Nikita\Desktop\Folder_NPU_Projects\Алгоритмы и структу
 C:\Users\Nikita\Desktop\Folder_NPU_Projects\Алгоритмы и структуры данных\ConsoleApplicationLab\ConsoleApplicationLab\obj\Debug\ConsoleApplicationLab.csproj.CoreCompileInputs.cache
 C:\Users\Nikita\Desktop\Folder_NPU_Projects\Алгоритмы и структуры данных\ConsoleApplicationLab\ConsoleApplicationLab\obj\Debug\ConsoleApplicationLab.exe
 C:\Users\Nikita\Desktop\Folder_NPU_Projects\Алгоритмы и структуры данных\ConsoleApplicationLab\ConsoleApplicationLab\obj\Debug\ConsoleApplicationLab.pdb
+C:\Users\User\code\Folder_For_NPU\Алгоритмы и структуры данных\Algo_2(Melnykov)\ConsoleApplicationLab\bin\Debug\ConsoleApplicationLab.exe.config
+C:\Users\User\code\Folder_For_NPU\Алгоритмы и структуры данных\Algo_2(Melnykov)\ConsoleApplicationLab\obj\Debug\ConsoleApplicationLab.exe
+C:\Users\User\code\Folder_For_NPU\Алгоритмы и структуры данных\Algo_2(Melnykov)\ConsoleApplicationLab\obj\Debug\ConsoleApplicationLab.pdb
