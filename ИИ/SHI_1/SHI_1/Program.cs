@@ -25,7 +25,7 @@ namespace SHI
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            Team[] cm = new Team[9];
+            Team[] cm = new Team[11];
             string a1;
             int a2, a3, a4;
             string[,] arrName = { 
@@ -50,7 +50,7 @@ namespace SHI
             a3 = Convert.ToInt32(Console.ReadLine());
             Console.Write("Введіть кількість матчів -  ");
             a4 = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 11; i++)
             {
                 cm[i] = new Team(arrName[i, 0], arrName[i, 1], arrName[i, 2], arrName[i, 3], arrName[i, 4], arrName[i, 5]);
             }

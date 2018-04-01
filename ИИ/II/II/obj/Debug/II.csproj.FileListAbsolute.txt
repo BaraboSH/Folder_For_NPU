@@ -4,3 +4,6 @@ c:\users\user\documents\visual studio 2015\Projects\II\II\bin\Debug\II.pdb
 c:\users\user\documents\visual studio 2015\Projects\II\II\obj\Debug\II.csprojResolveAssemblyReference.cache
 c:\users\user\documents\visual studio 2015\Projects\II\II\obj\Debug\II.exe
 c:\users\user\documents\visual studio 2015\Projects\II\II\obj\Debug\II.pdb
+C:\Users\User\code\Folder_For_NPU\ИИ\II\II\bin\Debug\II.exe.config
+C:\Users\User\code\Folder_For_NPU\ИИ\II\II\obj\Debug\II.exe
+C:\Users\User\code\Folder_For_NPU\ИИ\II\II\obj\Debug\II.pdb
