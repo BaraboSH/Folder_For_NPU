@@ -26,7 +26,7 @@ function print(res) {
 
 function getAllData() {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/getAllData.php");
+  xhr.open("POST", "http://practisephp/getAllData.php");
   xhr.send();
   var res;
   xhr.onload = function() {
@@ -37,7 +37,7 @@ function getAllData() {
 
 function getMax() {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/getMax.php");
+  xhr.open("POST", "http://practisephp/getMax.php");
   xhr.send();
   var res;
   xhr.onload = function() {
@@ -47,7 +47,7 @@ function getMax() {
 }
 function getMin() {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/getMin.php");
+  xhr.open("POST", "http://practisephp/getMin.php");
   xhr.send();
   var res;
   xhr.onload = function() {

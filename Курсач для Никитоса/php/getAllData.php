@@ -3,7 +3,7 @@
   header('Access-Control-Allow-Methods: POST,GET,OPTIONS');
   header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
 
-  $mysqli = new mysqli("angularServer", "root", "", "Test");
+  $mysqli = new mysqli("127.0.0.1", "root", "", "Test");
   $mysqli -> query("SET NAMES 'utf-8'");
 
   $userId = $mysqli -> query("SELECT * FROM `Goods`");

@@ -11,3 +11,10 @@ C:\Users\User\code\Folder_For_NPU\ИИ\SHI_1\SHI_1\obj\Debug\SHI_1.pdb
 C:\Users\User\code\Folder_For_NPU\ИИ\SHI_1\SHI_1\bin\Debug\SHI_1.exe
 C:\Users\User\code\Folder_For_NPU\ИИ\SHI_1\SHI_1\bin\Debug\SHI_1.pdb
 C:\Users\User\code\Folder_For_NPU\ИИ\SHI_1\SHI_1\obj\Debug\SHI_1.csprojResolveAssemblyReference.cache
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\ИИ\SHI_1\SHI_1\obj\Debug\SHI_1.csprojResolveAssemblyReference.cache
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\ИИ\SHI_1\SHI_1\obj\Debug\SHI_1.csproj.CoreCompileInputs.cache
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\ИИ\SHI_1\SHI_1\obj\Debug\SHI_1.exe
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\ИИ\SHI_1\SHI_1\obj\Debug\SHI_1.pdb
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\ИИ\SHI_1\SHI_1\bin\Debug\SHI_1.exe.config
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\ИИ\SHI_1\SHI_1\bin\Debug\SHI_1.exe
+C:\Users\Nikita\Desktop\Folder_NPU_Projects\ИИ\SHI_1\SHI_1\bin\Debug\SHI_1.pdb

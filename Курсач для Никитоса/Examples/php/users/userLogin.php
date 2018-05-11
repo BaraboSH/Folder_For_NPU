@@ -2,11 +2,11 @@
   header('Access-Control-Allow-Origin: *');
   header('Access-Control-Allow-Methods: POST,GET,OPTIONS');
   header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
-  $email = $_POST['email'];
+  $login = $_POST['login'];
   $password = $_POST['password'];
   $mysqli = new mysqli("angularServer", "root", "", "myBase");
   $mysqli -> query("SET NAMES 'utf-8'");
-  $id = $mysqli -> query("SELECT `id` FROM `usersData` WHERE (`email` = '$email' AND `password` = '$password')");
+  $id = $mysqli -> query("SELECT `id` FROM `usersData` WHERE (`email` = '$login' AND `password` = '$password')");
   $id = getId($id);
   $result_set = $mysqli -> query("SELECT * FROM `users` WHERE `id` = $id");
   if ($result_set) {
