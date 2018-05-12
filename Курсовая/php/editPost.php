@@ -11,7 +11,7 @@
 	$Date = $_POST['Date'];
 	$Photo = $_POST['Photo'];
 
-    $mysqli -> query("UPDATE `Posts` SET `text` = '$Text', `dateOfPublic` = '$Date', `dateOfBirth` = '$Date', `urlPhoto` = '$Photo' WHERE `Posts`.`id` = $id");
+    $mysqli -> query("UPDATE `Posts` SET `text` = '$Text', `dateOfPublic` = '$Date',  `urlPhoto` = '$Photo' WHERE `Posts`.`id` = '$id'");
 
 	$mysqli -> close();
 ?>
