@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="js/scriptPosts.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Статьи</title>
+  </head>
+  <body style="font-family: 'Roboto', sans-serif;">
+   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#6c0180">
+   	<a class="navbar-brand" href="index.html">
+   		<img src="images/logo1.png" alt="logo" width="80" height="80">
+   	</a>
+   	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+   	<ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="index.html">Домашняя</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="table.html">Матчи</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="team.html">Состав команды</a>
+      </li>  
+       <li class="nav-item active">
+        <a class="nav-link" href="history.html">Статьи</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="photo.html">Фотогалерея</a>
+      </li>
+    </ul>
+     <a id="hiUser" class="btn  btn-lg mr-2 btn-success change text-center" hidden>
+
+		</a>
+       <a class="btn btn-primary change" onclick="checkData()" data-toggle="modal" data-target="#exampleModal" data>Войти
+         <i class="fas fa-sign-in-alt fa-1x"></i>
+     </a>
+      <a class="btn btn-primary change"  data-toggle="modal" data-target="#exitModal" hidden>Выйти
+          <i class="fas fa-sign-out-alt fa-1x"></i>
+     </a>
+	</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Войдите на сайт</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form name="logIN" method="POST">
+		  <input oninput="checkData()" onfocus="hideAlert()" type="text" class="form-control mb-2" id="exampleInputLogin1"placeholder="Login" name="login">
+		   <input oninput="checkData()" onfocus="hideAlert()" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+		   <div id="wrongAlert"class="alert alert-dismissible alert-danger mt-1" hidden>
+  				<strong>Неправильные данные</strong> 
+		   	</div>
+	   </form>	
+      </div>
+      <div class="modal-footer">
+        <button id="enter"class="btn btn-lg btn-primary btn-block " type="button" >Sign in</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="exitModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Вы действительно хотите выйти?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button  data-dismiss="modal" onclick="logout()" type="button" class="btn btn-primary">Да</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
+      </div>
+    </div>
+  </div>
+</div> 
+   </nav> 
+   <div class="jumbotron ">
+        <div class="container">
+            <div hidden class="change form-group row justify-content-around mb-5">
+                <button  type="button" data-toggle="modal" data-target="#editAddPost"  onclick="clearInputsPost()" class=" btn btn-primary btn-lg col-4 text-truncate">Добавить новую статью <i class="fas fa-user-plus"></i></button>
+            </div>
+            <div class="modal fade" id="editAddPost" tabindex="-1" role="dialog" aria-labelledby="headOfForm" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="headOfFormPost">Добавление статьи</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form name="editAddPost" method="POST">
+                        <label class="font-weight-bold" for="PostInputPhoto">Фото</label>
+                        <input required type="text" class="form-control mb-2" id="PostInputPhoto" placeholder="Фото" name="Photo">
+                        <label class="font-weight-bold" for="PostInputDate">Дата публикации</label>
+                        <input required type="text" class="form-control mb-2" id="PostInputDate" placeholder="Дата" name="Date">
+                        <label class="font-weight-bold" for="PostInputText">Текст статьи</label>
+                        <textarea rows="20" required  class="form-control mb-2" id="PostInputText" placeholder="Текст статьи" name="Text"></textarea>
+                        <input name="id" type="hidden">
+                    </div>
+                    <div class="modal-footer">
+                      <button id="submitButPost" type="submit" class="btn btn-primary">Добавить</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Выйти</button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+            </div>
+          <div class="row"  id="result">
+           
+           
+            
+          </div>
+        </div>
+      </div>	
+	  <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.bundle.js" ></script>
+    <script async src="js/script.js"></script>
+  </body>
+</html>

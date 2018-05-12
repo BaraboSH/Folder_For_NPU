@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Нива Бузова</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    	<link rel="stylesheet" href="css/bootstrap.min.css">
+    	<link rel="stylesheet" href="css/style-index.css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+    <body style="font-family: 'Roboto', sans-serif;">
+      <div class="wrap">
+       <header class="header clearfix">
+          <div class="left">
+            <a class="button finance change" href="#" data>Помочь команде</a>
+				<a id="hiUser" class="ml-3 mt-4 btn-lg btn btn-primary change  text-center" hidden>
+
+				</a>
+          </div>
+           <div class="logo">
+               <a href="#"><img src="images/logo1.png"alt="" ></a>
+           </div>
+           <div class="right " >
+                   <a data onclick="checkData()" id="ent" class="enter btn btn-primary change" data-toggle="modal" data-target="#exampleModal">Войти
+                       <div class="img"></div>
+                   </a>
+                   <a id="log" class="enter btn btn-primary change"  hidden data-toggle="modal" data-target="#exitModal">Выйти
+                       <div class="img"></div>
+                   </a>
+           </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Войдите на сайт</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form name="logIN">
+		  <input oninput="checkData()" onfocus="hideAlert()" type="text" class="form-control mb-2" id="exampleInputLogin1"placeholder="Login" name="login">
+		   <input oninput="checkData()" onfocus="hideAlert()" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+		   <div id="wrongAlert"class="alert alert-dismissible alert-danger mt-1" hidden>
+  				<strong>Неправильные данные</strong> 
+		   	</div>
+	   </form>	
+      </div>
+      <div class="modal-footer">
+        <button id="enter"class="btn btn-lg btn-primary btn-block " type="button" >Sign in</button>
+      </div>
+    </div>
+  </div>
+</div>
+ <div class="modal" tabindex="-1" role="dialog" id="exitModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Вы действительно хотите выйти?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button  data-dismiss="modal" onclick="logout()" type="button" class="btn btn-primary">Да</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
+      </div>
+    </div>
+  </div>
+</div>     
+       </header>
+        <article>
+           <nav>
+               <ul class="menu">
+                  <li><a href="table.html">Матчи</a></li>
+                  <li><a href="team.html">Состав команды</a></li>
+                  <li><a href="history.html">Статьи</a></li>
+                  <li><a href="photo.html">Фотогалерея</a></li>
+		            </ul>
+           </nav>
+       </article>
+       <footer> 
+           <div class="share">
+               Наши социальные сети
+               <div class="icons">
+				   <a class="social social-fb" href="https://www.facebook.com/%D0%A4%D0%9A-%D0%9D%D0%98%D0%92%D0%90-%D0%91%D1%83%D0%B7%D0%BE%D0%B2%D0%B0-%D0%9B%D1%8E%D0%B1%D0%B8%D0%BC%D1%96%D0%B2%D0%BA%D0%B0-1693360494291085/" target="_blank"></a>
+				   <a class="social social-vk" href="https://vk.com/nivabuzova" target="_blank"></a>
+               </div>
+           </div>
+       </footer>
+       </div>
+       	<script src="js/jquery-3.3.1.js"></script>
+    	<script src="js/bootstrap.bundle.js" ></script>
+    	<script defer src="js/script.js"></script>
+    </body>
+</html>
