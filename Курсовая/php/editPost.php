@@ -10,8 +10,18 @@
 	$Text = $_POST['Text'];
 	$Date = $_POST['Date'];
 	$Photo = $_POST['Photo'];
-
+    $mysqli -> begin_transaction();
     $mysqli -> query("UPDATE `Posts` SET `text` = '$Text', `dateOfPublic` = '$Date',  `urlPhoto` = '$Photo' WHERE `Posts`.`id` = '$id'");
-
-	$mysqli -> close();
+    $usersData = $mysqli -> query("SELECT * FROM `Posts` ORDER BY `Posts`.`dateOfPublic` DESC");
+    $mysqli -> commit();
+    print_r(json_encode(getResult($usersData)));
+    $mysqli -> close();
+    
+    function getResult($array) {
+        $resultArray = array();
+        while(($row = $array -> fetch_assoc()) != false) { 
+                $resultArray[] = $row;
+        }
+          return $resultArray;
+      }
 ?>

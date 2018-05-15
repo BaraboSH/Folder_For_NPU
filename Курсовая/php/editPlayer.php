@@ -14,8 +14,20 @@
 	$Number = $_POST['Number'];
 	$Photo = $_POST['Photo'];
 	$Position = $_POST['Position'];
-
+	$mysqli -> begin_transaction();
     $mysqli -> query("UPDATE `playersInfo` SET `Fname` = '$FName', `Lname` = '$LName', `dateOfBirth` = '$Date', `citezenship` = '$City', `position` = '$Position', `gameNumber` = '$Number', `photo` = '$Photo' WHERE `playersInfo`.`id` = $id");
 
+	$usersData = $mysqli -> query("SELECT * FROM `playersInfo` ORDER BY `playersInfo`.`id` DESC");
+	$mysqli -> commit();
+	print_r(json_encode(getResult($usersData)));
+	
 	$mysqli -> close();
+  
+	function getResult($array) {
+		$resultArray = array();
+		while(($row = $array -> fetch_assoc()) != false) { 
+				$resultArray[] = $row;
+		}
+		  return $resultArray;
+	  }
 ?>

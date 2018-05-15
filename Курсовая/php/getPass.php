@@ -8,7 +8,7 @@
   $mysqli -> query("SET NAMES 'utf-8'");
   $result_set = $mysqli -> query("SELECT `Login` FROM `Users` WHERE (`Login` = '$login' AND `Password` = '$password')");
   if($result_set != null) {
-	print_r(json_encode(printResult($result_set)));
+	  print_r(json_encode(printResult($result_set)));
   }
   $mysqli -> close();
  function printResult($result_set) {

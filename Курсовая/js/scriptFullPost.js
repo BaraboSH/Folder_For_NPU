@@ -18,8 +18,10 @@ function printResult(obj) {
   	resultBlock.innerHTML = "";
   	var resultStr = "";
     var div = document.createElement("div");
-    var str = "";
-	str+='<img style=" width: 100%; display: block;" class="card-img-top img-fluid" src="'+obj["urlPhoto"]+'" alt="Photo"><div class="card-body"><p class="card-text" style="white-space:pre-wrap;">'+obj["text"]+'</p></div>';
+	var str = "";
+	var headText = obj["text"].substring(0,obj["text"].indexOf("|"));
+	var bodyText = obj["text"].substring(obj["text"].indexOf("|")+1);
+	str+='<img style=" width: 100%; display: block;" class="card-img-top img-fluid" src="'+obj["urlPhoto"]+'" alt="Photo"><div class="card-body"><p class="text-center font-weight-bold" style="white-space:pre-wrap;">'+headText+'</p><p class="card-text" style="white-space:pre-wrap;">'+bodyText+'</p></div>';
     div.innerHTML = str;
     div.className = "card";
     resultBlock.appendChild(div);

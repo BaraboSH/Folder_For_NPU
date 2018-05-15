@@ -13,11 +13,20 @@
 	$Number = $_POST['Number'];
 	$Photo = $_POST['Photo'];
 	$Position = $_POST['Position'];
-
-    $mysqli -> query("
-	INSERT INTO	
-	`playersInfo` (`id`, `Fname`, `Lname`, `dateOfBirth`, `citezenship`, `position`, `gameNumber`, `photo`)
-	VALUES 
-	(NULL, '$FName', '$LName', '$Date', '$City', '$Position', '$Number', '$Photo')");
+	$mysqli -> begin_transaction();
+    $mysqli -> query("INSERT INTO	`playersInfo` (`id`, `Fname`, `Lname`, `dateOfBirth`, `citezenship`, `position`, `gameNumber`, `photo`)
+	VALUES (NULL, '$FName', '$LName', '$Date', '$City', '$Position', '$Number', '$Photo')");
+	$usersData = $mysqli -> query("SELECT * FROM `playersInfo` ORDER BY `playersInfo`.`id` DESC");
+	$mysqli -> commit();
+	print_r(json_encode(getResult($usersData)));
+	
 	$mysqli -> close();
+  
+	function getResult($array) {
+		$resultArray = array();
+		while(($row = $array -> fetch_assoc()) != false) { 
+				$resultArray[] = $row;
+		}
+		  return $resultArray;
+	  }
 ?>

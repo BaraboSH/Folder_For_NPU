@@ -4,7 +4,7 @@
   header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
   $mysqli = new mysqli("localhost", "root", "", "TeamBD");
   $mysqli -> query("SET NAMES 'utf-8'");
-  $usersData = $mysqli -> query("SELECT * FROM `playersInfo`");
+  $usersData = $mysqli -> query("SELECT * FROM `playersInfo` ORDER BY `playersInfo`.`id` DESC");
   print_r(json_encode(getResult($usersData)));
   
   $mysqli -> close();

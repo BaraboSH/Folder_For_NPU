@@ -1,9 +1,13 @@
 "use strict";
+var form = document.getElementById("matchAdd");
+if(form) {
+form.addEventListener("submit",addMatch);
+}
 //Убираю стандартное поведение браузера
 $( function() {
             $('form').submit(function() {
                 return false;
-            });
+			});
         });
 
 
@@ -63,7 +67,8 @@ function checkData() {
     	var res = this.response;
 		if(res != "null") {
 			localStorage.setItem("user",res);
-			location.reload();
+			checkAdmin();
+			$("#exampleModal").modal('hide');
 		}
 		else {
 			document.forms.logIN[0].value = "";
@@ -95,6 +100,12 @@ function switchElem () {
 				elems[i].removeAttribute("data");
 				elems[i].setAttribute("hidden","");
 			}
+			if(!localStorage["user"]){
+				if(elems[i].matches('[already]')) {
+					elems[i].removeAttribute("already");
+					elems[i].setAttribute("hidden","");
+				}
+			}
   }
 }
 
@@ -122,8 +133,12 @@ function deletePlayer (player) {
 	formData.append("id",player);
 	var xhr = new XMLHttpRequest();
   	xhr.open("POST", "http://siteforteam/php/deletePlayer.php");
-  	xhr.send(formData);
-	location.reload();
+	  xhr.send(formData);
+	  var res;
+	xhr.onload = function() {
+		res = JSON.parse( this.response );
+    	printPlayers(res);
+	}
 }
 
 
@@ -133,8 +148,13 @@ function editPlayer () {
 	var form = new FormData(document.editAddPlayer);
     var xhr = new XMLHttpRequest();
   	xhr.open("POST", "http://siteforteam/php/editPlayer.php");
-  	xhr.send(form);
-	location.reload();
+	  xhr.send(form);
+	  var res;
+	xhr.onload = function() {
+		res = JSON.parse( this.response );
+    	printPlayers(res);
+		$('#editAddMenu').modal('hide');
+	}
 }
 
 
@@ -144,8 +164,13 @@ function addPlayer () {
 	var form = new FormData(document.editAddPlayer);
 	var xhr = new XMLHttpRequest();
   	xhr.open("POST", "http://siteforteam/php/addPlayer.php");
-  	xhr.send(form);
-	location.reload();
+	  xhr.send(form);
+	  var res;
+	xhr.onload = function() {
+		res = JSON.parse( this.response );
+    	printPlayers(res);
+		$('#editAddMenu').modal('hide');
+	}
 }
 
 
@@ -235,8 +260,13 @@ function editPost () {
 	var form = new FormData(document.editAddPost);
     var xhr = new XMLHttpRequest();
 	xhr.open("POST", "http://siteforteam/php/editPost.php");
-  	xhr.send(form);
-	location.reload();
+	xhr.send(form);
+	var res;
+	xhr.onload = function() {
+		res = JSON.parse( this.response );
+    	printPosts(res);
+		$('#editAddPost').modal('hide');
+	  }
 }
 
 
@@ -245,6 +275,52 @@ function addPost () {
 	var form = new FormData(document.editAddPost);
     var xhr = new XMLHttpRequest();
   	xhr.open("POST", "http://siteforteam/php/addPost.php");
-  	xhr.send(form);
-	location.reload();
+	xhr.send(form);
+	var res;
+	xhr.onload = function() {
+		res = JSON.parse( this.response );
+    	printPosts(res);
+		$('#editAddPost').modal('hide');
+	}
+}
+
+
+// Связать матч со статьей
+function getIdOfMatchForPost(id) {
+	var form = new FormData();
+	form.append("id",id);
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "http://siteforteam/php/getIDForMatch.php");
+	xhr.send(form);
+	xhr.onload = function() {
+		var res = JSON.parse(this.response);
+		if(res != "null") {
+			getFullPost(res[0].id);
+		}
+	}
+
+}
+
+
+
+//Открыть полную статью в новой вкладке
+function getFullPost(obj) {
+	window.open("http://siteforteam/fullPost.html?id="+obj);
+}
+
+
+
+//Добавление матча
+function addMatch() {
+	console.log("hello");
+	var form = new FormData(document.addMatch);
+    var xhr = new XMLHttpRequest();
+  	xhr.open("POST", "http://siteforteam/php/addMatch.php");
+	xhr.send(form);
+	var res;
+	xhr.onload = function() {
+		res = JSON.parse( this.response );
+    	printMatches(res);
+		$('#addMatch').modal('hide');
+	}
 }
