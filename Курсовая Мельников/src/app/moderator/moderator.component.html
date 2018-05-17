@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col">
+    <form>
+      <div class="row mb-2">
+        <div class="col-6">
+          <h6>Name</h6>
+          <div class="form-group mb-2">
+            <input type="text" class="form-control" placeholder="Name" [(ngModel)]="searchName" name="searchName">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Surname" [(ngModel)]="searchSurname" name="searchSurname">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <button class="btn btn-success mt-4" (click)="searchUsers()">Search</button>
+            <button class="btn btn-danger mt-4" (click)="clearSearch()">Clear search</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<h5 class="text-warning text-center" *ngIf="usersNotFounded">Users with such characteristics not found</h5>
+<div class="row">
+  <div class="col">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let user of users">
+        <p><img src="{{user.image}}"  class="list-group-item__image" alt="{{user.name}} {{user.surname}}" *ngIf="user.image"><a routerLink="/profile/id{{user.id}}"> {{user.name}} {{user.surname}}</a> <b>{{user.email}}</b> <i *ngIf="user.rules == 'operator'" class="fa fa-eye fa-2x"></i></p>
+        <button class="btn btn-primary" (click)="makeOperator(user)" *ngIf="user.rules != 'operator'">Make operator</button>
+        <button class="btn btn-warning" (click)="deleteOperator(user)" *ngIf="user.rules == 'operator'">Delete operator</button>
+        <button class="btn btn-danger" (click)="deleteUser(user)">Delete user</button>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row" *ngIf="!usersNotFounded && !usersOver">
+  <div class="col text-center">
+    <button class="btn btn-success" (click)="downloadMoreUsers()">Show more users<i class="fa fa-angle-double-down fa-2x"></i></button>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-5">
+  <div class="container">
+    <a class="navbar-brand" routerLink="home">sWitch <i class="fa fa-toggle-on"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+   
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ml-md-5">
+        <li class="nav-item d-inline-block" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a class="nav-link" routerLink="home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="bucket">Bucket<sup class="text-warning">{{backetCount}}</sup></a>
+        </li>
+        <li *ngIf="isUserDownloaded; then exitHref; else loginHref"></li>
+        <ng-template #exitHref>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" data-toggle="modal" data-target="#logoutModal" style="cursor: pointer">Logout</a>
+          </li>
+        </ng-template>
+        <ng-template #loginHref>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="login">Login/Register</a>
+          </li>
+        </ng-template>
+        <li class="nav-item" routerLinkActive="active" *ngIf="rules == 'admin'">
+          <a class="nav-link" routerLink="admin">Admin</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="rules == 'moderator'">
+          <a class="nav-link" routerLink="moderator">Moderate</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="rules == 'operator'">
+          <a class="nav-link" routerLink="operator">Operator</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto mr-3" *ngIf="isUserDownloaded">
+        <li class="nav-item d-inline-block">
+          <a class="nav-link" routerLink="/profile/id{{loginedUser.id}}">{{loginedUser.name}}</a>
+        </li>
+        <li class="nav-item d-none d-md-block" *ngIf="loginedUser.image">
+          <a routerLink="/profile/id{{loginedUser.id}}"><img src="{{loginedUser.image}}" class="navbar-nav__image"></a>
+        </li>
+      </ul>
+      
+      <form class="form-inline my-2 d-block d-sm-none d-lg-block">
+        <div class="">
+          <div class="position-relative float-left">
+            <input class="form-control search__input" type="search" placeholder="Search" aria-label="Search" name="searchValue" [(ngModel)]="searchValue">
+            <select class="form-control search__type" [(ngModel)]="searchType" name="searchType">
+              <option>name</option>
+              <option>price</option>
+              <option>type</option>
+            </select>
+          </div>
+          <button class="btn btn-outline-success float-left" [disabled]="!searchValue" routerLink="/search" [queryParams]="{'value': searchValue, 'type': searchType}" (click)="searchValue = ''">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<div class="modal fade" tabindex="-1" id="logoutModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Are you sure?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="logout()">Yes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

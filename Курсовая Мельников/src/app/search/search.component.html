@@ -1,0 +1,23 @@
+<div class="text-dark text-center" *ngIf="!isGoodsDownloaded">
+  <h2>Nothing found</h2>
+</div>
+<div class="row" *ngIf="isGoodsDownloaded">
+  <div class="col-lg-3 col-md-4 col-sm-6 mb-4" *ngFor="let good of goods">
+    <div class="card bg-dark text-light">
+      <h6 class="card-header"><a routerLink="/product/id{{good.id}}" class="text-light" title="{{good.name}}">{{good.name | slice:0:38}}..</a></h6>
+      <a><img class="card-img-top" src="{{good.image}}" alt="{{good.name}} photo"></a>
+      <div class="card-body">
+        <h6 class="card-title">{{good.price}}{{good.currency}}</h6>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-success" routerLink="/product/id{{good.id}}">Buy</button>
+        <button class="btn btn-primary" (click)="addToBucket(good)"><i class="fa fa-shopping-basket"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="isGoodsDownloaded">
+  <div class="col text-center">
+    <button class="btn btn-success" (click)="searchMoreGoods()">Download more goods <i class="fa fa-angle-double-down fa-2x"></i></button>
+  </div>
+</div>

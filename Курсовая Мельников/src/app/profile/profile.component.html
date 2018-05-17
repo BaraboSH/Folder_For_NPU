@@ -1,0 +1,32 @@
+<div class="jumbotron">
+  <div *ngIf="isUserDownloaded" class="row">
+    <div class="col">
+      <h2>{{user.name}} {{user.surname}}</h2>
+      <img src="{{user.image}}" class="profile__image" *ngIf="user.image"><br>
+      <button class="btn btn-primary my-2 w-25" routerLink="/edit" *ngIf="isUserPage">Edit</button>
+    </div>
+    <div class="col" *ngIf="isUserPage">
+      <h2 class="text-center">Your orders</h2>
+      <h5 *ngIf="error" class="text-primary text-center">You dont have orders</h5>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action text-primary" [class.text-danger]="order.status == 'decided'"
+        [class.text-success]="order.status == 'accepted'" *ngFor="let order of orders">
+        <h5>Order ID: <span class="badge badge-primary">{{order.id}}</span></h5>
+         <p>Status: <b>{{order.status || capitalise}}</b></p>
+         <p>Type of delivery: <b>{{order.type}}</b></p>
+         <p>Date of order: <b>{{order.date}}</b></p>
+         <p>Sum of order: <b>{{order.price}}{{order.currency}}</b></p>
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-action text-info" *ngFor="let orderBody of ordersBody | ordersFilter:order.id">
+              <p><b>{{orderBody.name}}</b></p>
+              <p><b>{{orderBody.type}}</b></p>
+              <p>Price: <b>{{orderBody.price}}{{orderBody.currency}}</b></p>
+              <p>Amount: <b>{{orderBody.amount}}</b></p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+ 

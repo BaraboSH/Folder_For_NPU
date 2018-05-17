@@ -1,0 +1,189 @@
+<div *ngIf="isUserDownloaded && isProductDownloaded && isUserDataDownloaded; then userTrue; else userFalse"></div>
+<ng-template #userTrue>
+  <div class="jumbotron bg-warning text-dark">
+    <h2 class="text-center mb-5">Order</h2>
+    <hr>
+    <div class="row">
+      <div class="col-sm-6">
+        <form (ngSubmit)="buyProduct()" [formGroup]="orderForm">
+          <div class="form-group">
+            <label for="nameInput">Your name</label>
+            <input type="text" class="form-control" placeholder="Name" id="nameInput" [(ngModel)]="userName" name="userName" formControlName="userName" value="{{user.name}}">
+
+            <div class="alert alert-danger"
+              *ngIf="orderForm.controls['userName'].invalid && orderForm.controls['userName'].dirty">
+              <h6>Wrong name</h6>
+              <p class="text-muted">Name must be between 2 and 15 characters</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="surnameInput">Your surname</label>
+            <input type="text" class="form-control" placeholder="Surname" id="surnameInput" [(ngModel)]="surname" name="surname" formControlName="surname" value="{{user.surname}}">
+
+            <div class="alert alert-danger"
+              *ngIf="orderForm.controls['surname'].invalid && orderForm.controls['surname'].dirty">
+              <h6>Wrong surname</h6>
+              <p class="text-muted">Surname must be between 2 and 20 characters</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="adressInput">Your adress</label>
+            <input type="text" class="form-control" placeholder="Adress" id="adressInput" [(ngModel)]="adress" name="adress" formControlName="adress" value="{{user.adress}}">
+
+            <div class="alert alert-warning"
+            *ngIf="orderForm.controls['adress'].invalid && orderForm.controls['adress'].dirty">
+              <h6>Input your adress</h6>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phoneInput">Your phone number</label>
+            <input type="text" class="form-control" placeholder="Phone" id="phoneInput" [(ngModel)]="phone" name="phone" formControlName="phone" value="{{user.phone}}">
+
+            <div class="alert alert-warning"
+              *ngIf="orderForm.controls['phone'].invalid && orderForm.controls['phone'].dirty">
+              <h6>Wrong phone number</h6>
+              <p class="text-muted">Example: (0**)***-***-*</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="emailInput">Your e-mail</label>
+            <input type="email" class="form-control" placeholder="E-mail" id="emailInput" [(ngModel)]="email" name="email" formControlName="email" value="{{userData}}">
+
+            <div class="alert alert-danger"
+              *ngIf="orderForm.controls['email'].invalid && orderForm.controls['email'].dirty">
+              <h6>Wrong e-mail</h6>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleSelect1">Type of delivery</label>
+            <select class="form-control" id="selectInput" [(ngModel)]="deliveryType" name="deliveryType" formControlName="deliveryType">
+              <option>Delivery</option>
+              <option>Pickup from our store</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-success" [disabled]="count > product.storage || count <= 0 || !phoneCheck() || !emailCheck()">Buy</button>
+            <p *ngIf="products.length != 0 && (products.length - (productNum + 1) != 0)" class="text-danger">*You have {{products.length - (productNum + 1)}} more items, click buy to create an order, and after adding goods to it</p>
+          </div>
+         
+        </form>
+      </div>
+      <div class="col">
+        <div class="card bg-light text-dark">
+          <a><img class="card-img-top" src="{{product.image}}"></a>
+          <div class="card-body">
+            <h6 class="card-title">{{product.name}}</h6>
+            <h4 class="card-title" *ngIf="count > 1">For one: {{product.price}}{{product.currency}}</h4>
+            <h4 class="card-title">For all: {{product.price * count}}{{product.currency}}</h4>
+            <hr class="bg-warning">
+            <h5>Amount:</h5>
+            <input type="number" class="form-control w-50" [(ngModel)]="count" name="count" min="1" max="{{product.storage}}">
+            <div class="alert alert-danger"
+              *ngIf="count > product.storage || count <= 0">
+              <h6>Invalid amount</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+  
+<ng-template #userFalse>
+  <div class="jumbotron bg-warning text-dark" *ngIf="isProductDownloaded">
+    <h2 class="text-center mb-5">Order</h2>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <form (ngSubmit)="buyProduct()" [formGroup]="orderForm">
+          <div class="form-group">
+            <label for="nameInput">Your name</label>
+            <input type="text" class="form-control" placeholder="Name" id="nameInput" [(ngModel)]="userName" name="userName" formControlName="userName">
+
+            <div class="alert alert-danger"
+              *ngIf="orderForm.controls['userName'].invalid && orderForm.controls['userName'].dirty">
+              <h6>Wrong name</h6>
+              <p class="text-muted">Name must be between 2 and 15 characters</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="surnameInput">Your surname</label>
+            <input type="text" class="form-control" placeholder="Surname" id="surnameInput" [(ngModel)]="surname" name="surname" formControlName="surname">
+
+            <div class="alert alert-danger"
+              *ngIf="orderForm.controls['surname'].invalid && orderForm.controls['surname'].dirty">
+              <h6>Wrong surname</h6>
+              <p class="text-muted">Surname must be between 2 and 20 characters</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="adressInput">Your adress</label>
+            <input type="text" class="form-control" placeholder="Adress" id="adressInput" [(ngModel)]="adress" name="adress" formControlName="adress">
+
+            <div class="alert alert-warning"
+            *ngIf="orderForm.controls['adress'].invalid && orderForm.controls['adress'].dirty">
+              <h6>Input your adress</h6>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phoneInput">Your phone number</label>
+            <input type="text" class="form-control" placeholder="Phone" id="phoneInput" [(ngModel)]="phone" name="phone" formControlName="phone">
+
+            <div class="alert alert-warning"
+              *ngIf="orderForm.controls['phone'].invalid && orderForm.controls['phone'].dirty">
+              <h6>Wrong phone number</h6>
+              <p class="text-muted">Example: (0**)***-***-*</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="emailInput">Your e-mail</label>
+            <input type="email" class="form-control" placeholder="E-mail" id="emailInput" [(ngModel)]="email" name="email" formControlName="email">
+
+            <div class="alert alert-danger"
+              *ngIf="orderForm.controls['email'].invalid && orderForm.controls['email'].dirty">
+              <h6>Wrong e-mail</h6>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="selectInput">Type of delivery</label>
+            <select class="form-control" id="selectInput" [(ngModel)]="deliveryType" name="deliveryType" formControlName="deliveryType">
+              <option>Delivery</option>
+              <option>Pickup from our store</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success" [disabled]="orderForm.invalid || count > product.storage || count <= 0">Make order</button>
+          </div>
+        </form>
+      </div>
+      <div class="col">
+        <div class="card bg-light text-dark">
+          <a><img class="card-img-top" src="{{product.image}}"></a>
+          <div class="card-body">
+            <h6 class="card-title">{{product.name}}</h6>
+            <h4 class="card-title" *ngIf="count > 1">For one: {{product.price}}{{product.currency}}</h4>
+            <h4 class="card-title">For all: {{product.price * count}}{{product.currency}}</h4>
+            <hr class="bg-warning">
+            <h5>Amount:</h5>
+            <input type="number" class="form-control w-50" [(ngModel)]="count" min="1" max="{{product.storage}}">
+            <div class="alert alert-danger"
+              *ngIf="count > product.storage || count <= 0">
+              <h6>Invalid amount</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,12 @@
+.navbar-nav__image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.search__type {
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 30px;
+  height: 50px;
+}

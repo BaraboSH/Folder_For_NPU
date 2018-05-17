@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-lg-6 mx-auto">
+      <h2 class="text-dark">Register</h2>
+      <form (ngSubmit)="userRegister()" [formGroup]="registerForm">
+        <div class="form-group">
+          <label for="nameInput">Input your name</label>
+          <input type="text" class="form-control" placeholder="Name" id="nameInput" [(ngModel)]="userName" name="userName" formControlName="userName">
+
+          <div class="alert alert-danger"
+            *ngIf="registerForm.controls['userName'].invalid && registerForm.controls['userName'].touched">
+            <h6>Wrong name</h6>
+            <p class="text-muted">Name must be between 2 and 15 characters</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="surnameInput">Input your surname</label>
+          <input type="text" class="form-control" placeholder="Surname" id="surnameInput" [(ngModel)]="surname" name="surname" formControlName="surname">
+
+           <div class="alert alert-danger"
+            *ngIf="registerForm.controls['surname'].invalid && registerForm.controls['surname'].touched">
+            <h6>Wrong surname</h6>
+            <p class="text-muted">Surname must be between 2 and 20 characters</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="photoInput">Input URL of your photo</label>
+          <input type="text" class="form-control" placeholder="URL" id="photoInput" [(ngModel)]="image" name="image" formControlName="image">
+
+          <div class="alert alert-warning"
+            *ngIf="registerForm.controls['image'].invalid && registerForm.controls['image'].dirty">
+            <h6>Input URL of your photo</h6>
+          </div>
+        </div>
+
+        <div class="form-group">
+        <label for="adressInput">Input your adress</label>
+        <input type="text" class="form-control" placeholder="Adress" id="adressInput" [(ngModel)]="adress" name="adress" formControlName="adress">
+
+        <div class="alert alert-warning"
+          *ngIf="registerForm.controls['adress'].invalid && registerForm.controls['adress'].dirty">
+          <h6>Input your adress</h6>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phoneInput">Input your phone number</label>
+        <input type="text" class="form-control" placeholder="Phone" id="phoneInput" [(ngModel)]="phone" name="phone" formControlName="phone">
+
+        <div class="alert alert-warning"
+          *ngIf="registerForm.controls['phone'].invalid && registerForm.controls['phone'].dirty">
+          <h6>Wrong phone number</h6>
+          <p class="text-muted">Example: (0**)***-***-*</p>
+        </div>
+      </div>
+
+        <div class="form-group">
+          <label for="emailInput">Input your e-mail</label>
+          <input type="email" class="form-control" placeholder="E-mail" id="emailInput" [(ngModel)]="email" name="email" formControlName="email">
+
+          <div class="alert alert-danger"
+            *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
+            <h6>Wrong e-mail</h6>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="passwordInput">Input your password</label>
+          <input type="password" class="form-control" placeholder="Password" id="passwordInput" name="password" [(ngModel)]="password" formControlName="password">
+          <div class="alert alert-danger"
+            *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
+            <h6>Wrong password</h6>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="passwordRepeatInput">Repeat your password</label>
+          <input type="password" class="form-control" placeholder="Repeat password" id="passwordRepeatInput" name="repeatPassword" [(ngModel)]="repeatPassword"  formControlName="repeatPassword">
+
+          <div class="alert alert-danger"
+            *ngIf="password != repeatPassword && registerForm.controls['repeatPassword'].touched">
+            <h6 *ngIf="registerForm.controls['repeatPassword'].invalid && registerForm.controls['repeatPassword'].touched">Wrong password</h6>
+            <h6>Passwords do not match</h6>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary" [disabled]="registerForm.controls['userName'].invalid || registerForm.controls['surname'].invalid || registerForm.controls['email'].invalid || registerForm.controls['repeatPassword'].invalid || registerForm.controls['password'].invalid || password != repeatPassword">Register</button>
+        </div>
+      </form>
+      <div class="alert alert-danger mt-3" *ngIf="errorData">
+        <p>User with such a mail already exists</p> 
+      </div>
+    </div>
+  </div>
+</div>

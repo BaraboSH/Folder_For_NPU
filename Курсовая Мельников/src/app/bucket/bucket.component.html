@@ -1,0 +1,19 @@
+<h2 *ngIf="isBucketEmpty()" class="text-center text-success">Bucket is empty</h2>
+ <div class="jumbotron" *ngIf="isProductDownloaded && !isBucketEmpty()">
+  <h2 class="text-center mb-5">Bucket</h2>
+    <button class="btn btn-danger mb-2" (click)="clearStorage()">Clear bucket</button>
+    <button class="btn btn-warning mb-2" routerLink="/buy">Buy all</button>
+  <hr class="mb-4">
+  <div class="row">
+    <div class="col-sm-6 mb-4" *ngFor="let good of goods" data-id="{{good.id}}">
+      <div class="card bg-dark text-light">
+       <button class="btn btn-danger card__delete" (click)="deleteProduct(good)"><i class="fa fa-trash"></i></button>
+        <h6 class="card-header">{{good.name}}</h6>
+        <a><img class="card-img-top" src="{{good.image}}" alt="{{good.name}} photo"></a>
+        <div class="card-body">
+          <h6 class="card-title">{{good.price}}{{good.currency}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
