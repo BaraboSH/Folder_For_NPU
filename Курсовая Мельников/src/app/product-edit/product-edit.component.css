@@ -1,0 +1,7 @@
+.product__image {
+  width: 250px;
+  border-radius: 10px;
+}
+.form__description {
+  resize: none;
+}

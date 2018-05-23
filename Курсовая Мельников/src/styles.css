@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.page-load {
+  margin: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border-top: 5px transparent solid;
+  border-right: 5px #313131 solid;
+  animation: loadPage .5s infinite linear;
+}
+@keyframes loadPage {
+  0% {
+    transform: rotate(360deg);
+  }
+}
+
+.list-group-item__image {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.card.bg-dark {
+  transition: 0.5s ease;
+  background: linear-gradient(#008859, transparent);
+}
+.navbar {
+  background: linear-gradient(to top, #008859, transparent 60%);
+}
+.btn-primary {
+  background: linear-gradient(#004691, transparent);
+  border: 0;
+}
+.btn-success {
+  background: linear-gradient(#1f7633, transparent);
+  border: 0;
+}
+.btn-danger {
+  background: linear-gradient(#982732, transparent);
+  border: 0;
+}
+.btn-warning {
+  background: linear-gradient(#a87e00, transparent);
+  border: 0;
+}

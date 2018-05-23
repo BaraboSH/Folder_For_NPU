@@ -1,0 +1,27 @@
+<div class="jumbotron" *ngIf="isProductDownloaded">
+  <h3>{{product.name}}</h3>
+  <hr class="my-4">
+  <p class="lead">{{product.type}}</p>
+  <p class="lead">{{product.description}}</p>
+  <img src="{{product.image}}" class="jumbotron__image" data-toggle="modal" data-target="#imageModal">
+  <hr class="my-4">
+  <h5>{{product.price}}{{product.currency}}</h5>
+  <p *ngIf="product.storage <= 5 && product.storage != 0" class="text-danger">Have time to buy, the last was left!</p>
+  <h6 *ngIf="product.storage == 0" class="text-danger">Product is over</h6>
+  <button class="btn btn-success" routerLink="/buy" [queryParams]="{'id': product.id}" [disabled]="product.storage == 0">Buy</button>
+  <button class="btn btn-primary" (click)="addToBucket()" [disabled]="product.storage == 0">Add to bucket</button>
+</div>
+<div class="modal fade" tabindex="-1" id="imageModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img src="{{product.image}}" class="modal__image">
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>

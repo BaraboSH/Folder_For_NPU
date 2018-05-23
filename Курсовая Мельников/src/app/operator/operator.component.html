@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col">
+    <form>
+      <div class="row mb-2">
+        <div class="col">
+          <h6>Name</h6>
+          <div class="form-group mb-2">
+            <input type="text" class="form-control" placeholder="Name" [(ngModel)]="searchName" name="searchName">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Surname" [(ngModel)]="searchSurname" name="searchSurname">
+          </div>
+        </div>
+        <div class="col">
+          <h6>E-mail</h6>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="E-mail" [(ngModel)]="searchEmail" name="searchEmail">
+          </div>
+        </div>
+        <div class="col">
+          <h6>Phone number</h6>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Phone number" [(ngModel)]="searchNumber" name="searchNumber">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <button class="btn btn-success mt-4" (click)="searchOrders()">Search</button>
+            <button class="btn btn-danger mt-4" (click)="clearSearch()">Clear search</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h2 class="text-center">Orders</h2>
+    <h5 *ngIf="getOrdersError" class="text-center">Orders list is empty</h5>
+    <h5 *ngIf="searchError" class="text-center text-danger">Orders with such characteristics not found</h5>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action" *ngFor="let order of orders">
+      <h5>Order ID: <span class="badge badge-primary">{{order.id}}</span></h5>
+       <p>Type of delivery: <b>{{order.type}}</b> Date of order: <b>{{order.date}}</b> Sum of order: <b>{{order.price}}{{order.currency}}</b></p>
+       <p>Name: <b>{{order.name}} {{order.surname}}</b> Adress: <b>{{order.adress}}</b></p>
+       <p>E-mail: <b>{{order.email}}</b> Phone: <b>{{order.phone}}</b></p>
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-action text-info" *ngFor="let orderBody of ordersBody | ordersFilter:order.id">
+            <p><b>{{orderBody.name}}</b></p>
+            <p><b>{{orderBody.type}}</b></p>
+            <p>Price: <b>{{orderBody.price}}{{orderBody.currency}}</b> Amount: <b>{{orderBody.amount}}</b></p>
+          </li>
+        </ul>
+        <button class="btn btn-success w-25 mt-2" [disabled]="order.type == 'delivery' && !order.adress && !order.phone || !order.adress && !order.phone && !order.email" (click)="orderAccept(order)">Accept</button>
+        <button class="btn btn-danger w-25 mt-2" (click)="orderDecline(order)">Decline</button>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row" *ngIf="!getOrdersError && !searchError && !isOrdersOver">
+  <div class="col text-center">
+    <button class="btn btn-success" (click)="downloadMoreOrders()"><i class="fa fa-angle-double-down fa-2x"></i></button>
+  </div>
+</div>

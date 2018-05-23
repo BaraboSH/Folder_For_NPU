@@ -1,0 +1,75 @@
+<div class="row mb-2">
+  <div class="col">
+    <form>
+      <div class="row">
+        <div class="col">
+          <h6>Price</h6>
+          <div class="form-group mb-2">
+            <input type="number" class="form-control" placeholder="Minimum" [(ngModel)]="filterMinPrice" name="filterMinPrice">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" placeholder="Maximum" [(ngModel)]="filterMaxPrice" name="filterMaxPrice">
+          </div>
+        </div>
+        <div class="col">
+          <h6>Type</h6>
+          <div class="form-group">
+            <select class="form-control" [(ngModel)]="filterType" name="filterType">
+              <option>Video card</option>
+              <option>Motherboard</option>
+              <option>Monitor</option>
+              <option>Processor</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <h6>Name</h6>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Name" [(ngModel)]="filterName" name="filterName">
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <div class="form-group">
+            <button class="btn btn-success" (click)="filterGoods()">Filter</button>
+            <button class="btn btn-danger" (click)="clearFilters()">Clear filters</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col text-success">
+   <button (click)="changeOrder()" class="btn btn-info">Order by price <i class="fa" [class.fa-sort-up]="filterOrderValue == true" [class.fa-sort-down]="filterOrderValue == false"></i></button>
+  </div>
+</div>
+<div class="row mb-2" *ngIf="userRoutes == 'moderator'">
+  <div class="col text-success">
+   <button routerLink="/product-add" class="btn btn-warning">Add new product</button>
+  </div>
+</div>
+<h5 class="text-warning text-center" *ngIf="isNotFounded">Goods with such characteristics not found</h5>
+<div class="row" *ngIf="isGoodsDownloaded">
+  <div class="col-lg-3 col-md-4 col-sm-6 mb-4" *ngFor="let good of goods">
+    <div class="card bg-dark text-light">
+      <h6 class="card-header text-truncate"><a routerLink="/product/id{{good.id}}" class="text-light" title="{{good.name}}">{{good.name}}</a></h6>
+      <a><img class="card-img-top" src="{{good.image}}" alt="{{good.name}} photo"></a>
+      <div class="card-body">
+        <h6 class="card-title">{{good.price}}{{good.currency}}</h6>
+      </div>
+      <div class="card-footer">
+        <h6 *ngIf="good.storage == 0">Product is over</h6>
+        <button class="btn btn-success" routerLink="/product/id{{good.id}}" [disabled]="good.storage == 0">Buy</button>
+        <button class="btn btn-primary" (click)="addToBucket(good)" [disabled]="good.storage == 0"><i class="fa fa-shopping-basket"></i></button>
+        <button class="btn btn-warning" *ngIf="userRoutes == 'moderator'" routerLink="/product-edit/id{{good.id}}"><i class="fa fa-edit"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="isGoodsDownloaded && !isGoodsOver">
+  <div class="col text-center">
+    <button class="btn btn-success" (click)="downloadMoreGoods()"><i class="fa fa-angle-double-down fa-2x"></i></button>
+  </div>
+</div>

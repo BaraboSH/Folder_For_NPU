@@ -1,0 +1,103 @@
+<div class="container" *ngIf="userStatus && allDataStatus">
+  <div class="row">
+    <div class="col-sm-10 col-lg-6 mx-auto">
+      <h2>Edit your account</h2>
+      <form (ngSubmit)="userEdit()" [formGroup]="editForm">
+        <div class="form-group">
+          <label for="nameInput">Input your new name</label>
+          <input type="text" class="form-control" placeholder="Name" id="nameInput" [(ngModel)]="userName" name="userName" formControlName="userName" value="{{user.name}}">
+
+          <div class="alert alert-danger"
+            *ngIf="editForm.controls['userName'].invalid && editForm.controls['userName'].dirty">
+            <h6>Wrong name</h6>
+            <p class="text-muted">Name must be between 2 and 15 characters</p>
+            <p class="text-muted">Example: Sergey</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="surnameInput">Input your new surname</label>
+          <input type="text" class="form-control" placeholder="Surname" id="surnameInput" [(ngModel)]="surname" name="surname" formControlName="surname"  value="{{user.surname}}">
+
+           <div class="alert alert-danger"
+            *ngIf="editForm.controls['surname'].invalid && editForm.controls['surname'].dirty">
+            <h6>Wrong surname</h6>
+            <p class="text-muted">Surname must be between 2 and 20 characters</p>
+            <p class="text-muted">Example: Melnykov</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <img src="{{user.image}}" class="form__image"><br>
+          <label for="photoInput">Input URL of new photo</label>
+          <input type="text" class="form-control" placeholder="URL" id="photoInput" [(ngModel)]="image" name="image" formControlName="image">
+
+          <div class="alert alert-danger"
+            *ngIf="editForm.controls['image'].invalid && editForm.controls['image'].dirty">
+            <h6>Input URL of your new photo</h6>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="adressInput">Input your new adress</label>
+          <input type="text" class="form-control" placeholder="Adress" id="adressInput" [(ngModel)]="adress" name="adress" formControlName="adress" value="{{user.adress}}">
+
+          <div class="alert alert-danger"
+            *ngIf="editForm.controls['adress'].invalid && editForm.controls['adress'].dirty">
+            <h6>Input your new adress</h6>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phoneInput">Input your new phone number</label>
+          <input type="text" class="form-control" placeholder="Phone" id="phoneInput" [(ngModel)]="phone" name="phone" formControlName="phone" value="{{user.phone}}">
+
+          <div class="alert alert-danger"
+            *ngIf="editForm.controls['phone'].invalid && editForm.controls['phone'].dirty">
+            <h6>Wrong phone number</h6>
+            <p class="text-muted">Example: (0**)***-***-*</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="emailInput">Input your e-mail</label>
+          <input type="email" class="form-control" placeholder="E-mail" id="emailInput" [(ngModel)]="email" name="email" formControlName="email" value="{{userData}}">
+
+          <div class="alert alert-danger"
+            *ngIf="editForm.controls['email'].invalid && editForm.controls['email'].dirty">
+            <h6>Wrong e-mail</h6>
+            <p class="text-muted">Example: example@mail.com</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="newPasswordInput">Input your new password</label>
+          <input type="password" class="form-control" placeholder="Password" id="newPasswordInput" name="newPassword" [(ngModel)]="newPassword" formControlName="newPassword">
+          <div class="alert alert-danger"
+            *ngIf="editForm.controls['newPassword'].invalid && editForm.controls['newPassword'].dirty">
+            <h6>Wrong new password</h6>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="passwordRepeatInput">Repeat your new password</label>
+          <input type="password" class="form-control" placeholder="Repeat password" id="passwordRepeatInput" name="repeatPassword" [(ngModel)]="repeatPassword"  formControlName="repeatPassword">
+
+          <div class="alert alert-danger"
+            *ngIf="repeatPassword != newPassword && editForm.controls['repeatPassword'].dirty">
+            <h6 *ngIf="editForm.controls['repeatPassword'].invalid && editForm.controls['repeatPassword'].dirty">Wrong new password</h6>
+            <h6>Passwords do not match</h6>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary" [disabled]="repeatPassword != newPassword || editForm.pristine">Edit</button>
+        </div>
+        <div class="alert alert-danger"
+            *ngIf="errorPassword">
+            <h6>Wrong password!</h6>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
