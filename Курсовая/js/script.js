@@ -1,7 +1,15 @@
 "use strict";
-var form = document.getElementById("matchAdd");
-if(form) {
-form.addEventListener("submit",addMatch);
+var formMatchAdd = document.getElementById("matchAdd");
+if(formMatchAdd) {
+	formMatchAdd.addEventListener("submit",addMatch);
+}
+var formSearchByLName = document.getElementById("searchByLastName");
+if(formSearchByLName) {
+    formSearchByLName.addEventListener("submit",searchPlayers);
+    formSearchByLName.search.addEventListener("input",function() {
+        if(formSearchByLName.search.value == "")
+        getAllPlayer();
+    });
 }
 //Убираю стандартное поведение браузера
 $( function() {
@@ -28,14 +36,16 @@ window.addEventListener("load",function() {
 
 //Событые на нажатие кнопки входа
 enter.addEventListener("click",getPassword);
-
+hiUser.addEventListener("click",function() {
+    location.href = "events.html";
+});
 
 // Проверка на вход
 window.addEventListener('DOMContentLoaded',checkAdmin());
 function checkAdmin() {
 	if(localStorage["user"]) {
 		var user = JSON.parse(localStorage["user"]);
-		hiUser.innerHTML = '<strong><i class="fas fa-pencil-alt"></i> '+user[0].Login +'</strong>';
+		hiUser.innerHTML = '<span style="color:#fff;"><i class="fas fa-user"></i> '+user[0].Login +'</span>';
 		switchElem();
 	} 
 			
@@ -307,7 +317,6 @@ function getIdOfMatchForPost(id) {
 function getFullPost(obj) {
 	window.open("http://siteforteam/fullPost.html?id="+obj);
 }
-
 
 
 //Добавление матча

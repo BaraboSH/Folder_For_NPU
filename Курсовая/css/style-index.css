@@ -59,12 +59,14 @@ header .right
 header .logo {
     width: 33%;
 	text-align: center;
+		z-index: 100;
 }
 header .logo a  img{
     filter: drop-shadow(0 10px 2px #6a206a);
     width: 170px;
     height: 170px;
     margin-top: 5px;
+
 }
 header .logo a  img:hover{
     transform: scale(0.98);
@@ -235,6 +237,19 @@ footer .icons {
 		
 		padding: 20px 15px 20px 15px;
 	}
+		#hiUser {
+			border: none;
+			border-right: 2px solid black;
+			box-shadow:none;
+			box-sizing: border-box;
+			margin: 0 !important;
+			padding-top: 50px;
+			float: left;
+			width: 100px;
+			height: 100%;
+			font-size: 15px;
+			filter: drop-shadow(0px 3px 2px #4e4e4e);
+		}
 	header .right .enter {
 		border: none;
 		border-left: 2px solid black;
@@ -277,6 +292,12 @@ footer .icons {
 		border-right: 2px solid black;
 		line-height: 20px;
 		padding-top:40px;
+	}
+}
+@media screen and (max-height:800px) {
+	nav ul a {
+		padding-top: 5px;
+		padding-bottom: 5px;
 	}
 }
 @media screen and (max-width:495px) {
