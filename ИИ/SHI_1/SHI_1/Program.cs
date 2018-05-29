@@ -135,6 +135,7 @@ namespace SHI
             Console.WriteLine("_________________________");
             getFootballer(ukr, new string[] { answerPosition, answerGoals, answerAssists, answerMatches, answerYCards },
             averageAssist, averageGoals, averageLostGoals, averageMatches, averageYCards);
+            Console.ReadKey();
         }
     }
 }
