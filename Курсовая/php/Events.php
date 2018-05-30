@@ -10,21 +10,6 @@
     $usersData = $mysqli -> query("SELECT * FROM `gameEvents`  WHERE `gameEvents`.`matchID` = '$Match'");
     $players = $mysqli -> query("SELECT * FROM `playersInfo` ORDER BY `playersInfo`.`id` DESC ");
     $length = sizeof(getResult($players));
-    if(($myrow=mysqli_fetch_array($usersData)) == TRUE) {
-        for ($i = 1; $i <= $length; $i++) {
-            if(isset($_POST['sostav-'. $i])) {$start = 1;}
-            else { $start = 0;}
-            if($_POST['substitute-'. $i] == "")
-                $substitute = 0;
-            else 
-               $substitute = $_POST['substitute-'. $i];
-            $goals = $_POST["goals-". $i];
-            $ycards = $_POST["ycards-". $i];
-            $rcards = $_POST["rcards-". $i];
-            $mysqli -> query("UPDATE `gameEvents` SET `isInStart` = '$start', `substitute` = '$substitute', `numberofGoals` = '$goals', `isYellowCards` = '$ycards', `isRedCard` = '$rcards' WHERE (`gameEvents`.`playerID` = $i) AND (`gameEvents`.`matchID` = $Match)");
-        }
-    }
-    else  {
         for ($i = 1; $i <= $length; $i++) {
             if(isset($_POST['sostav-'. $i])) {$start = 1;}
             else {$start = 0;}
@@ -36,10 +21,15 @@
             else {$ycards = $_POST['ycards-'. $i];}
             if($_POST['rcards-'. $i] == "") {$rcards = 0;}
             else {$rcards = $_POST['rcards-'. $i];}
-            $mysqli -> query("INSERT INTO `gameEvents`(`id`, `playerID`, `matchID`, `isInStart`, `substitute`, `numberofGoals`, `isYellowCards`, `isRedCard`) VALUES (NULL,'$i','$Match','$start','$substitute','$goals','$ycards','$rcards')");
-             printf("Errormessage: %s\n", $mysqli->error);
+            if(($myrow=mysqli_fetch_array($mysqli -> query("SELECT * FROM `gameEvents`  WHERE `gameEvents`.`matchID` = '$Match' AND `gameEvents`.`playerID` = '$i'"))) == TRUE)
+            {
+                $mysqli -> query("UPDATE `gameEvents` SET `isInStart` = '$start', `substitute` = '$substitute', `numberofGoals` = '$goals', `isYellowCards` = '$ycards', `isRedCard` = '$rcards' WHERE (`gameEvents`.`playerID` = $i) AND (`gameEvents`.`matchID` = $Match)");
+            }
+            else 
+            {
+                $mysqli -> query("INSERT INTO `gameEvents`(`id`, `playerID`, `matchID`, `isInStart`, `substitute`, `numberofGoals`, `isYellowCards`, `isRedCard`) VALUES (NULL,'$i','$Match','$start','$substitute','$goals','$ycards','$rcards')");
+            }
         }
-     }
     $mysqli -> close();
     
     function getResult($array) {

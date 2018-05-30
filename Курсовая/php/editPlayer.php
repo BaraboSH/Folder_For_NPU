@@ -16,18 +16,35 @@
 	$Position = $_POST['Position'];
 	$mysqli -> begin_transaction();
     $mysqli -> query("UPDATE `playersInfo` SET `Fname` = '$FName', `Lname` = '$LName', `dateOfBirth` = '$Date', `citezenship` = '$City', `position` = '$Position', `gameNumber` = '$Number', `photo` = '$Photo' WHERE `playersInfo`.`id` = $id");
-
-	$usersData = $mysqli -> query("SELECT * FROM `playersInfo` ORDER BY `playersInfo`.`id` DESC");
+	$players = $mysqli -> query("SELECT * FROM `playersInfo` ORDER BY `id` DESC ");
+    $stats = $mysqli -> query("SELECT `playerID` as idPlayer, SUM(`numberofGoals`) as goals,COUNT(CASE WHEN `substitute` > 0 OR `isInStart` = 1 THEN 1 ELSE NULL END) as matches, SUM(`isYellowCards`) as yellowcards, SUM(`isRedCard`) as redcards FROM `gameEvents` GROUP BY `playerID` ORDER BY `id` DESC");
+    
 	$mysqli -> commit();
-	print_r(json_encode(getResult($usersData)));
-	
+	print_r(json_encode(printResult($players,$stats)));
 	$mysqli -> close();
   
-	function getResult($array) {
-		$resultArray = array();
-		while(($row = $array -> fetch_assoc()) != false) { 
-				$resultArray[] = $row;
-		}
-		  return $resultArray;
-	  }
+    function printResult($players, $stats) {
+        $array = array();
+        $playersArr = array();
+        $statsArr = array();
+        while((($row2 = $stats -> fetch_assoc()) != false) ) {
+            $statsArr[] = $row2;   
+            while((($row = $players -> fetch_assoc()) != false)) {
+            $playersArr[] = $row; 
+          }
+        }
+        for ($j = 0; $j < sizeof($playersArr); $j++) {
+            $flag = true;
+          for ($k = 0; $k < sizeof($statsArr); $k++) {
+            if ($statsArr[$k]['idPlayer'] == $playersArr[$j]['id']) {
+              $array[] = $playersArr[$j] + $statsArr[$k];
+              $flag = false;
+            }
+          }
+          if($flag) {
+            $array[] = $playersArr[$j];
+          }
+        }
+        return $array;
+      }
 ?>

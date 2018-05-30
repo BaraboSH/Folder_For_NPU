@@ -177,7 +177,7 @@ function addPlayer () {
 	  xhr.send(form);
 	  var res;
 	xhr.onload = function() {
-		res = JSON.parse( this.response );
+		res = JSON.parse(this.response);
     	printPlayers(res);
 		$('#editAddMenu').modal('hide');
 	}
@@ -258,7 +258,7 @@ function setInputsPost(obj) {
 function clearInputsPost() {
 	document.editAddPost.reset();
 	document.editAddPost.id = "addPost";
-	headOfFormPost.textContent = "Добавление игрока";
+	headOfFormPost.textContent = "Добавление статьи";
 	submitButPost.textContent = "Добавить";
 	document.editAddPost.removeEventListener("submit",editPost);
 	document.editAddPost.addEventListener("submit",addPost);

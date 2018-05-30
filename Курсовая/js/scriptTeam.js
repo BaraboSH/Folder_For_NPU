@@ -9,7 +9,6 @@ function searchPlayers() {
   	xhr.onload = function() {
     	res = JSON.parse( this.response );
 		if(res.length == 0) {
-			console.log("11");
 			var resultBlock = document.getElementById("result");
 			resultBlock.innerHTML = '';
 			var div = document.createElement("div");
@@ -45,7 +44,7 @@ function getAllPlayer() {
  	xhr.send();
   	var res;
   	xhr.onload = function() {
-    	res = JSON.parse( this.response );
+        res = JSON.parse( this.response );
     	printPlayers(res);
   	}
 }
@@ -55,7 +54,16 @@ function printPlayers(res) {
   for (var i = 0; i < res.length; i++) {
     var div = document.createElement("div");
     var obj = res[i];
-	var str = "";
+    var str = "";
+    var match,goals,ycards,rcards;
+    if(obj["matches"] == undefined) {match = 'НД';}
+        else { match = obj["matches"];}
+    if(obj["goals"] == undefined) { goals = 'НД';}
+        else  {goals = obj["goals"];}
+    if(obj["yellowcards"] == undefined){ ycards = 'НД';}
+        else  {ycards = obj["yellowcards"];}
+    if(obj["redcards"] == undefined) {rcards = 'НД';}
+        else  {rcards = obj["redcards"];}
 	if(localStorage["user"]) { 
         str+='<div class="card mb-3" data-toggle="collapse" data-target="#collapseExample'+obj["id"]+'" aria-expanded="false" aria-controls="collapseExample"><h4 class="card-header">'+obj["Fname"]+' ' +obj["Lname"]+'<span class="badge badge-primary float-right ">'+obj["gameNumber"]+'</span></h4><img style="height: 450px; width: 100%; display: block;" src="' + obj["photo"] + '" alt="Card image"><div class="collapse" id="collapseExample'+obj["id"]+'"><div class="alert alert-primary mb-0"><table class="table table-dark"><thead class="thead-light"><tr class="text-center"><th scope="col">Матчі</th>';
         if(obj["position"] == "Воротар") {
@@ -64,7 +72,7 @@ function printPlayers(res) {
         else {
             str+='<th scope="col"><i style="color:#000;"class="far fa-futbol fa-2x"></i></th>';
         }
-        str+='<th scope="col"><i style="color:#ddda15" class="fas fa-sticky-note fa-2x"></i></th><th scope="col"><i style="color:#dd1515" class="fas fa-sticky-note fa-2x"></i></th></tr></thead><tbody><tr class="text-center"><td>'+obj["matches"] +'</td><td>'+obj["goals"] +'</td><td>'+obj["yellowcards"] +'</td><td>'+obj["redcards"] +'</td></tr></tbody></table></div></div><ul class="list-group list-group-flush"><li class="list-group-item">'+obj["position"]+'</li><li class="list-group-item">'+obj["citezenship"]+'</li><li class="list-group-item">'+obj["dateOfBirth"]+'</li><li already class="change list-group-item"><button data-id="'+obj["id"]+'" onclick="editPlayerShow(this.dataset.id)" type="button" class="btn btn-warning float-right"><i class="fas fa-edit"></i></button><button data-id="'+obj["id"]+'" onclick="deletePlayer(this.dataset.id)" type="button" class="btn btn-danger float-left"><i class="fas fa-trash"></i></button></li></ul></div>';
+        str+='<th scope="col"><i style="color:#ddda15" class="fas fa-sticky-note fa-2x"></i></th><th scope="col"><i style="color:#dd1515" class="fas fa-sticky-note fa-2x"></i></th></tr></thead><tbody><tr class="text-center"><td>'+match+'</td><td>'+goals+'</td><td>'+ycards +'</td><td>'+rcards+'</td></tr></tbody></table></div></div><ul class="list-group list-group-flush"><li class="list-group-item">'+obj["position"]+'</li><li class="list-group-item">'+obj["citezenship"]+'</li><li class="list-group-item">'+obj["dateOfBirth"]+'</li><li already class="change list-group-item"><button data-id="'+obj["id"]+'" onclick="editPlayerShow(this.dataset.id)" type="button" class="btn btn-warning float-right"><i class="fas fa-edit"></i></button><button data-id="'+obj["id"]+'" onclick="deletePlayer(this.dataset.id)" type="button" class="btn btn-danger float-left"><i class="fas fa-trash"></i></button></li></ul></div>';
 	}
 	else {
 		str+='<div class="card mb-3" data-toggle="collapse" data-target="#collapseExample'+obj["id"]+'" aria-expanded="false" aria-controls="collapseExample"><h4 class="card-header">'+obj["Fname"]+' ' +obj["Lname"]+'<span class="badge badge-primary float-right ">'+obj["gameNumber"]+'</span></h4><img style="height: 450px; width: 100%; display: block;" src="' + obj["photo"] + '" alt="Card image"><div class="collapse" id="collapseExample'+obj["id"]+'"><div class="alert alert-primary mb-0"><table class="table table-dark"><thead class="thead-light"><tr class="text-center"><th scope="col">Матчі</th>';
@@ -74,7 +82,7 @@ function printPlayers(res) {
         else {
             str+='<th scope="col"><i style="color:#000;"class="far fa-futbol fa-2x"></i></th>';
         }
-        str+='<th scope="col"><i style="color:#ddda15" class="fas fa-sticky-note fa-2x"></i></th><th scope="col"><i style="color:#dd1515" class="fas fa-sticky-note fa-2x"></i></th></tr></thead><tbody><tr class="text-center"><td>'+obj["matches"] +'</td><td>'+obj["goals"] +'</td><td>'+obj["yellowcards"] +'</td><td>'+obj["redcards"] +'</td></tr></tbody></table></div></div><ul class="list-group list-group-flush"><li class="list-group-item">'+obj["position"]+'</li><li class="list-group-item">'+obj["citezenship"]+'</li><li class="list-group-item">'+obj["dateOfBirth"]+'</li><li hidden class="change list-group-item"><button data-id="'+obj["id"]+'" onclick="editPlayerShow(this.dataset.id)" type="button" class="btn btn-warning float-right"><i class="fas fa-edit"></i></button><button data-id="'+obj["id"]+'" onclick="deletePlayer(this.dataset.id)" type="button" class="btn btn-danger float-left"><i class="fas fa-trash"></i></button></li></ul></div>';
+        str+='<th scope="col"><i style="color:#ddda15" class="fas fa-sticky-note fa-2x"></i></th><th scope="col"><i style="color:#dd1515" class="fas fa-sticky-note fa-2x"></i></th></tr></thead><tbody><tr class="text-center"><td>'+match +'</td><td>'+goals +'</td><td>'+ycards +'</td><td>'+rcards+'</td></tr></tbody></table></div></div><ul class="list-group list-group-flush"><li class="list-group-item">'+obj["position"]+'</li><li class="list-group-item">'+obj["citezenship"]+'</li><li class="list-group-item">'+obj["dateOfBirth"]+'</li><li hidden class="change list-group-item"><button data-id="'+obj["id"]+'" onclick="editPlayerShow(this.dataset.id)" type="button" class="btn btn-warning float-right"><i class="fas fa-edit"></i></button><button data-id="'+obj["id"]+'" onclick="deletePlayer(this.dataset.id)" type="button" class="btn btn-danger float-left"><i class="fas fa-trash"></i></button></li></ul></div>';
 	}
 	
     div.innerHTML = str;
