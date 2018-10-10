@@ -1,0 +1,31 @@
+CREATE TABLE Department 
+(
+	ID INT IDENTITY,
+	Name VARCHAR(40),
+	CONSTRAINT PK_Department_Id PRIMARY KEY (ID)
+);
+
+CREATE TABLE Position 
+(
+	ID INT IDENTITY,
+	Name VARCHAR(40),
+	CONSTRAINT PK_Position_Id PRIMARY KEY (ID),
+);
+
+CREATE TABLE Employee 
+(
+	ID INT IDENTITY,
+	LName NVARCHAR(20),
+	FName NVARCHAR(20),
+	MName NVARCHAR(20),
+	ParentID INT,
+	Sex NCHAR(1),
+	DateOfBirth DATE,
+	PositionID INT,
+	DepartmentID INT
+	CONSTRAINT PK_Employee_Id PRIMARY KEY (ID),
+	CONSTRAINT FK_Employee_To_Position FOREIGN KEY (PositionID)  REFERENCES Position (ID) ON DELETE SET NULL,
+	CONSTRAINT FK_Employee_To_Department FOREIGN KEY (DepartmentID)  REFERENCES Department (ID) ON DELETE SET NULL
+);
+
+
