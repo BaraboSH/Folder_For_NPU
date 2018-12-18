@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        .playlist {
+            padding: 20px 50px;
+            border: 1px solid black;
+            width: 400px;
+            margin: 100px auto;
+        }
+        li.playing {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <form class="form-horizontal" style="margin-top: 50px;">
+            <input class="btn btn-success" id="buttP" type="button" value="Play" onclick="PlaySound()" />
+            <input class="btn btn-success" id="buttS" type="button" value="Stop" onclick="StopSound()" />
+            <input class="btn btn-success" id="buttPlayAT" type="button" value="Play on" onclick="PlayAt(buttSec.value)" />
+            <input class="btn btn-outline-success" id="duration" type="number" step="10" min="0" value="0" />
+            <input id="volume" type="range" step="0.1" min="0" max="1" value="1" oninput="SetVolume(buttVolume.value)" />
+            <input class="btn btn-danger" id="mute" type="button" value="Mute" onclick="MuteSound()" />
+            <p style="margin-top: 20px;"><input id="durationLine" type="range" step="1" min="0" style="width:800px;"
+                    value="0" oninput="PlayAt(durationLine.value)" /></p>
+        </form>
+    </section>
+
+    <audio id="audioElement">
+        <source src="" />
+    </audio>
+    <ol class="playlist">
+        <li class="playing" data-src="media/audio/6f1104e5a96071.mp3">Dj Star</li>
+        <li data-src="media/audio/01 Yeah Right.mp3">Yeah Right</li>
+        <li data-src="media/audio/A Million on My Soul    Alexiane.mp3">A Million on My Soul</li>
+        <li data-src="media/audio/Alphaville - Big In Japan.mp3">Alphaville - Big In Japan</li>
+    </ol>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script>
+        var song = document.getElementById("audioElement");
+        var buttonP = document.getElementById("buttP");
+        var buttSec = document.getElementById("duration");
+        var buttVolume = document.getElementById("volume");
+        var buttMute = document.getElementById("mute");
+        var durationLine = document.getElementById("durationLine");
+        var tempVolume = 1;
+
+        function MuteSound() {
+            if (buttVolume.value > 0) {
+                tempVolume = buttVolume.value;
+                buttVolume.value = 0;
+                song.volume = 0;
+                buttMute.value = "Unmute";
+            } else {
+                buttVolume.value = tempVolume;
+                song.volume = tempVolume;
+                buttMute.value = "Mute";
+            }
+        }
+
+        function SetVolume(volume) {
+            if (volume > 0) {
+                buttMute.value = "Mute";
+            } else {
+                buttMute.value = "Unmute";
+            }
+            song.volume = volume;
+        }
+
+        function SetMax() {
+            buttSec.setAttribute("max", Math.floor(song.duration));
+            durationLine.setAttribute("max", Math.floor(song.duration));
+        }
+
+        function PlaySound() {
+            if (song.paused) {
+                song.play();
+                buttonP.value = "Pause";
+            } else {
+                song.pause();
+                buttonP.value = "Play";
+            }
+        }
+
+        function StopSound() {
+            song.currentTime = 0;
+            song.pause();
+            buttonP.value = "Play";
+            durationLine.value = 0;
+        }
+
+        function PlayAt(time) {
+            song.currentTime = time;
+            song.play();
+            buttonP.value = "Pause";
+            durationLine.value = time;
+            duration.value = time;
+        }
+
+        function Duration() {
+            durationLine.value = song.currentTime;
+            //duration.value = Math.round(song.currentTime);
+        }
+        $(function () {
+            $(song).find('source').attr('src', $('.playlist li').first().attr('data-src'));
+            song.load();
+        });
+        $(song).on({
+            ended: () => {
+                var next = $('ol li.playing').next();
+                if (!next.length) next = $('ol li').first();
+                next.addClass('playing').siblings().removeClass('playing');
+                $(song).find('source').attr('src', $(next).attr('data-src'));
+                song.load();
+                song.play();
+            },
+            canplay: () => {
+                SetMax()
+            },
+            timeupdate: () => {
+                Duration()
+            }
+        });
+        $('ol li').click(function (e) {
+            e.preventDefault();
+            if ($(this).hasClass('playing')) {
+                song.pause();
+                buttonP.value = "Play";
+            } else {
+                $(this).addClass('playing').siblings().removeClass('playing');
+                $(song).find('source').attr('src', $(this).attr('data-src'));
+                song.load();
+                song.play();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
