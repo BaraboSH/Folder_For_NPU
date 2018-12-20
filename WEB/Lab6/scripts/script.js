@@ -10,7 +10,7 @@ $(function () {
         },
         mouseleave: function () {
             $(".controls").fadeOut();
-
+            isDrag = false;
         },
         mousemove: function (e) {
             if (isDrag) {

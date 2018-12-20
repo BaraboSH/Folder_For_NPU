@@ -16,6 +16,9 @@
         li.playing {
             font-weight: bold;
         }
+        li {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -136,6 +139,7 @@
             } else {
                 $(this).addClass('playing').siblings().removeClass('playing');
                 $(song).find('source').attr('src', $(this).attr('data-src'));
+                buttonP.value = "Pause";
                 song.load();
                 song.play();
             }
