@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang='ru-RU'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <title>Django</title>
+        <style>
+            table,tr,td {
+                border: 2px solid black
+            }
+            th {
+                background-color: rgb(182, 202, 219)
+            }
+            td,th {
+                padding: 15px;
+                text-align: center;
+            }
+            table {
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+    <!--[if lt IE 8]>
+    <h1 class='browsehappy'>Ваш браузер <strong>устарел</strong>. Пожалуйста<a href='http://browsehappy.com/'>обновите</a>,/h1> 
+    <![endif]-->
+        <table>
+            <tr>
+                <th>Користувач</th>
+                <td>
+                    {% if current_user == 'admin' %}
+                        Ви зайшли як: {{current_user}}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Активність</th>
+                <td>
+                    {% if days != None %}
+                        {{days}}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>День тижня</th>
+                <td>
+                    {{dayOfTheWeek}}
+                </td>
+            </tr>
+            <tr>
+                <th>Робочі дні </th>
+                <td>
+                    {% if days != None and days > 5%}
+                        Вихідний
+                    {% endif %}
+                    {% if days != None and days <= 5 %}
+                        Робочий
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Статус  </th>
+                <td>
+                    {% ifequal status 'online'%}
+                        online
+                    {% else %}
+                        ofline
+                    {% endifequal %}
+                </td>
+            </tr>
+            <tr>
+                <th>Додатково  </th>
+                <td>
+                    {% if 'gmail.com' in email %}
+                        сервіси Google
+                    {% else %}
+                        {{email}}
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

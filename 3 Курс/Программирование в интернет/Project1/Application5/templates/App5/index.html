@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang='ru-RU'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <title>Django</title>
+
+    </head>
+    <body>
+    <!--[if lt IE 8]>
+    <h1 class='browsehappy'>Ваш браузер <strong>устарел</strong>. Пожалуйста<a href='http://browsehappy.com/'>обновите</a>,/h1> 
+    <![endif]-->
+        
+        <div class="user">
+            <ul>
+                <li>{{job_year.2}}</li>
+                <li>{{name}}</li>
+                <li>{{lastname}}</li>
+                <li>{{contact.nickname|capfirst}}</li>
+               <li>Контракт діє до {{job_year.2|add:'5'}}</li> 
+               <li>{% now "SHORT_DATETIME_FORMAT" %}</li>
+               <li>Початок роботи: {{job_year|first}}</li>
+               <li>Код : {{contact.phone|slice:':3'}} Телефон : {{contact.phone|slice:'3:'}}</li>
+            </ul>
+        </div>
+  </body>
+</html>

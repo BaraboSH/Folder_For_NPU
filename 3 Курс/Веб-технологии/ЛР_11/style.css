@@ -1,0 +1,27 @@
+ol li:nth-child(2),
+ol li:nth-child(4),
+ol li:nth-child(6) {
+    color:  blueviolet;;
+}
+ol li:nth-child(5),
+ol li:nth-child(7) {
+    color: green;
+}
+ol li:nth-last-child(1) {
+    color:  blue;
+}
+
+
+ul li:nth-child(2n) {
+    color:blueviolet;
+}
+div:nth-child(3) ul li:nth-child(1),
+div:nth-child(6) ul li:nth-child(1),
+div:nth-child(9) ul li:nth-child(1) {
+    color: red;
+}
+div:nth-child(3) ul li:nth-child(5),
+div:nth-child(8) ul li:nth-child(5),
+div:nth-child(11) ul li:nth-child(5) {
+    color: green;
+}
