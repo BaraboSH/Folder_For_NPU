@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^application3/', include('Application3.urls')),
     url(r'^application4/', include('Application4.urls')),
     url(r'^application5/', include('Application5.urls')),
+    url(r'^applicationmodels/', include('applicationmodels.urls')),
     url(r'admin/', admin.site.urls),
 
 ]

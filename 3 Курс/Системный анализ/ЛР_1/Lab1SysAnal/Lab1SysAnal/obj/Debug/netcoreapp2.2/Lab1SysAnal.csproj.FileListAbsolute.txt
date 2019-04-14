@@ -1,0 +1,11 @@
+D:\Projects\Lab1SysAnal\Lab1SysAnal\bin\Debug\netcoreapp2.2\Lab1SysAnal.deps.json
+D:\Projects\Lab1SysAnal\Lab1SysAnal\bin\Debug\netcoreapp2.2\Lab1SysAnal.runtimeconfig.json
+D:\Projects\Lab1SysAnal\Lab1SysAnal\bin\Debug\netcoreapp2.2\Lab1SysAnal.runtimeconfig.dev.json
+D:\Projects\Lab1SysAnal\Lab1SysAnal\bin\Debug\netcoreapp2.2\Lab1SysAnal.dll
+D:\Projects\Lab1SysAnal\Lab1SysAnal\bin\Debug\netcoreapp2.2\Lab1SysAnal.pdb
+D:\Projects\Lab1SysAnal\Lab1SysAnal\obj\Debug\netcoreapp2.2\Lab1SysAnal.csprojAssemblyReference.cache
+D:\Projects\Lab1SysAnal\Lab1SysAnal\obj\Debug\netcoreapp2.2\Lab1SysAnal.csproj.CoreCompileInputs.cache
+D:\Projects\Lab1SysAnal\Lab1SysAnal\obj\Debug\netcoreapp2.2\Lab1SysAnal.AssemblyInfoInputs.cache
+D:\Projects\Lab1SysAnal\Lab1SysAnal\obj\Debug\netcoreapp2.2\Lab1SysAnal.AssemblyInfo.cs
+D:\Projects\Lab1SysAnal\Lab1SysAnal\obj\Debug\netcoreapp2.2\Lab1SysAnal.dll
+D:\Projects\Lab1SysAnal\Lab1SysAnal\obj\Debug\netcoreapp2.2\Lab1SysAnal.pdb
