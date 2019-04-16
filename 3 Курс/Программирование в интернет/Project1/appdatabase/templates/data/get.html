@@ -1,0 +1,85 @@
+{% extends 'data/home.html'%}
+
+{% block content %}
+{% if humans.count > 0 %}
+<h2>List Human</h2>
+<table>
+    <tr><th>Name</th><th>Surname</th><th>Company</th><th>Birth</th></tr>
+    {% for person in humans %}
+    <tr><td>{{ person.Name }}</td><td>{{ person.Surname}}</td><td>{{ person.Salary }}</td><td>{{ person.Birth }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if firstThree.count > 0 %}
+<h2>List Human Limit = 3</h2>
+<table>
+    <tr><th>Name</th><th>Surname</th><th>Company</th><th>Birth</th></tr>
+    {% for person in firstThree %}
+    <tr><td>{{ person.Name }}</td><td>{{ person.Surname}}</td><td>{{ person.Company }}</td><td>{{ person.Birth }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if humanFromFirstCompany.count > 0 %}
+<h2>List Human Company = DataArt </h2>
+<table>
+    <tr><th>Name</th><th>Surname</th><th>Company</th></tr>
+    {% for person in humanFromFirstCompany %}
+    <tr><td>{{ person.Name }}</td><td>{{ person.Surname}}</td><td>{{ person.Company }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if humanBornIn2000.count > 0 %}
+<h2>List Human Age = 2000</h2>
+<table>
+    <tr><th>Name</th><th>Surname</th><th>Company</th></tr>
+    {% for person in humanBornIn2000 %}
+    <tr><td>{{ person.Name }}</td><td>{{ person.Surname}}</td><td>{{ person.Company }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if orderedDescBirth.count > 0 %}
+<h2>List Human orderedDescBirth</h2>
+<table>
+    <tr><th>Name</th><th>Surname</th><th>Company</th><th>Birth</th></tr>
+    {% for person in orderedDescBirth %}
+    <tr><td>{{ person.Name }}</td><td>{{ person.Surname}}</td><td>{{ person.Company }}</td><td>{{ person.Birth }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if lTSalary.count > 0 %}
+<h2>List Human Salary <= 1000 </h2>
+<table>
+    <tr><th>Name</th><th>Surname</th><th>Salary</th></tr>
+    {% for person in lTSalary %}
+    <tr><td>{{ person.Name }}</td><td>{{ person.Surname}}</td><td>{{ person.Salary }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if orderedSalary.count > 0 %}
+<h2>List Human order Salary </h2>
+<table>
+    <tr><th>Name</th><th>Surname</th><th>Company</th></tr>
+    {% for person in orderedSalary %}
+    <tr><td>{{ person.Name }}</td><td>{{ person.Surname}}</td><td>{{ person.Salary }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if humanName.count > 0 %}
+<h2>List Human humanName </h2>
+<table>
+    <tr><th>Name</th><th>Surname</th><th>Company</th></tr>
+    {% for person in humanName %}
+    <tr><td>{{ person.Name }}</td><td>{{ person.Surname}}</td><td>{{ person.Salary }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if lastAddedhuman.count > 0 %}
+<h2>List  lastAddedhuman </h2>
+<table>
+    <tr><th>Name</th><th>Surname</th><th>Company</th></tr>
+    {% for person in lastAddedhuman %}
+    <tr><td>{{ person.Name }}</td><td>{{ person.Surname}}</td><td>{{ person.Salary }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

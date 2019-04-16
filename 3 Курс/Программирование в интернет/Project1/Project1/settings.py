@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'Application3',
     'Application4',
     'Application5',
-    'applicationmodels'
+    'applicationmodels',
+    'appdatabase'
 ]
 
 MIDDLEWARE = [

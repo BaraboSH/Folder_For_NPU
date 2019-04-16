@@ -1,0 +1,15 @@
+{% extends 'data/home.html'%}
+
+{% block post %}
+
+{% if form.count > 0 %}
+<h2> Search </h2>
+<table>
+    <tr><th>Name</th><th>Surname</th><th>Company</th></tr>
+    {% for person in form %}
+    <tr><td>{{ person.Name }}</td><td>{{ person.Surname}}</td><td>{{ person.Company }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock post %}
