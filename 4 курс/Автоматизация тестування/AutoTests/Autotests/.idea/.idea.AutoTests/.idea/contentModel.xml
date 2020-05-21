@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Nikita\.nuget\packages\microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\Nikita\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\Nikita\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\Nikita\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.api.dll" t="Include" />
+    <e p="C:\Users\Nikita\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.dll" t="Include" />
+    <e p="C:\Users\Nikita\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\Nikita\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\Nikita\.Rider2019.3\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\Nikita\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Nikita\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_AutoTests.1213406435.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Nikita\source\repos\AutoTests" t="IncludeRecursive">
+      <e p="AutoTests.csproj" t="IncludeRecursive" />
+      <e p="AutoTests.sln" t="IncludeFlat" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Calculator.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp3.1" t="Include">
+            <e p="AutoTests.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Selenium" t="Include">
+        <e p="bin" t="Include">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="chromedriver.exe" t="Include" />
+              <e p="cs" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="de" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="es" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="fr" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="it" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="ja" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="ko" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="Microsoft.DotNet.InternalAbstractions.dll" t="Include" />
+              <e p="Microsoft.TestPlatform.CommunicationUtilities.dll" t="Include" />
+              <e p="Microsoft.TestPlatform.CoreUtilities.dll" t="Include" />
+              <e p="Microsoft.TestPlatform.CrossPlatEngine.dll" t="Include" />
+              <e p="Microsoft.TestPlatform.PlatformAbstractions.dll" t="Include" />
+              <e p="Microsoft.TestPlatform.Utilities.dll" t="Include" />
+              <e p="Microsoft.VisualStudio.CodeCoverage.Shim.dll" t="Include" />
+              <e p="Microsoft.VisualStudio.TestPlatform.Common.dll" t="Include" />
+              <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.dll" t="Include" />
+              <e p="Newtonsoft.Json.dll" t="Include" />
+              <e p="NuGet.Frameworks.dll" t="Include" />
+              <e p="nunit.engine.api.dll" t="Include" />
+              <e p="nunit.engine.dll" t="Include" />
+              <e p="nunit.framework.dll" t="Include" />
+              <e p="NUnit3.TestAdapter.dll" t="Include" />
+              <e p="NUnit3.TestAdapter.pdb" t="Include" />
+              <e p="nunit_random_seed.tmp" t="Include" />
+              <e p="pl" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="pt-BR" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="ru" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="Selenium.deps.json" t="Include" />
+              <e p="Selenium.dll" t="Include" />
+              <e p="Selenium.pdb" t="Include" />
+              <e p="Selenium.runtimeconfig.dev.json" t="Include" />
+              <e p="Selenium.runtimeconfig.json" t="Include" />
+              <e p="System.Xml.XPath.XmlDocument.dll" t="Include" />
+              <e p="testhost.dll" t="Include" />
+              <e p="tr" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="WebDriver.dll" t="Include" />
+              <e p="zh-Hans" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+              <e p="zh-Hant" t="Include">
+                <e p="Microsoft.TestPlatform.CommunicationUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CoreUtilities.resources.dll" t="Include" />
+                <e p="Microsoft.TestPlatform.CrossPlatEngine.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.Common.resources.dll" t="Include" />
+                <e p="Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="obj" t="Include">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Selenium.AssemblyInfo.cs" t="Include" />
+              <e p="Selenium.AssemblyInfoInputs.cache" t="Include" />
+              <e p="Selenium.assets.cache" t="Include" />
+              <e p="Selenium.csproj.CopyComplete" t="Include" />
+              <e p="Selenium.csproj.CoreCompileInputs.cache" t="Include" />
+              <e p="Selenium.csproj.FileListAbsolute.txt" t="Include" />
+              <e p="Selenium.csprojAssemblyReference.cache" t="Include" />
+              <e p="Selenium.dll" t="Include" />
+              <e p="Selenium.genruntimeconfig.cache" t="Include" />
+              <e p="Selenium.pdb" t="Include" />
+            </e>
+          </e>
+          <e p="project.assets.json" t="Include" />
+          <e p="project.nuget.cache" t="Include" />
+          <e p="project.packagespec.json" t="Include" />
+          <e p="Selenium.csproj.nuget.cache" t="Include" />
+          <e p="Selenium.csproj.nuget.dgspec.json" t="Include" />
+          <e p="Selenium.csproj.nuget.g.props" t="Include" />
+          <e p="Selenium.csproj.nuget.g.targets" t="Include" />
+        </e>
+        <e p="SeleniumTest.cs" t="Include" />
+        <e p="Urls.cs" t="Include" />
+      </e>
+      <e p="Tests" t="Include">
+        <e p="CalculatorTestCaseSource.cs" t="Include" />
+        <e p="CalculatorTests.cs" t="Include" />
+      </e>
+    </e>
+    <e p="C:\Users\Nikita\source\repos\Selenium" t="IncludeRecursive">
+      <e p="Selenium.csproj" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>
